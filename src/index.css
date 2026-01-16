@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* JoJo Construction Design System - Navy Blue & Construction Orange */
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 15%;
+
+    /* Primary: Dark Navy Blue */
+    --primary: 215 55% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Light Navy */
+    --secondary: 215 30% 94%;
+    --secondary-foreground: 215 55% 18%;
+
+    /* Muted */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Accent: Construction Orange */
+    --accent: 28 90% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 28 90% 52%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for construction theme */
+    --navy: 215 55% 18%;
+    --navy-light: 215 40% 25%;
+    --navy-dark: 215 60% 12%;
+    --orange: 28 90% 52%;
+    --orange-light: 28 85% 60%;
+    --orange-dark: 28 95% 42%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 55% 18% / 0.95), hsl(215 55% 18% / 0.8));
+    --gradient-accent: linear-gradient(135deg, hsl(28 90% 52%), hsl(28 95% 42%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(215 55% 18% / 0.08);
+    --shadow-md: 0 4px 20px hsl(215 55% 18% / 0.12);
+    --shadow-lg: 0 8px 40px hsl(215 55% 18% / 0.16);
+    --shadow-accent: 0 4px 20px hsl(28 90% 52% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 45% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 28 90% 52%;
+    --primary-foreground: 215 55% 12%;
+
+    --secondary: 215 40% 20%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 28 85% 55%;
+    --accent-foreground: 215 55% 12%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 40% 22%;
+    --input: 215 40% 22%;
+    --ring: 28 90% 52%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-primary;
+  }
+}
+
+@layer components {
+  /* Hero Button Styles */
+  .btn-hero-primary {
+    @apply bg-accent text-accent-foreground px-8 py-4 rounded-md font-semibold text-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-accent-glow hover:scale-105;
+    box-shadow: var(--shadow-accent);
+  }
+
+  .btn-hero-secondary {
+    @apply bg-transparent border-2 border-white text-white px-8 py-4 rounded-md font-semibold text-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-white hover:text-primary;
+  }
+
+  /* Card Styles */
+  .card-service {
+    @apply bg-card rounded-xl p-8 transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-service:hover {
+    box-shadow: var(--shadow-lg);
+    @apply -translate-y-2;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200;
+    @apply hover:text-accent;
+  }
+
+  /* Project Card */
+  .project-card {
+    @apply relative overflow-hidden rounded-xl cursor-pointer;
+  }
+
+  .project-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent;
+    @apply opacity-60 group-hover:opacity-90 transition-opacity duration-300;
+  }
+
+  /* Feature Icon */
+  .feature-icon {
+    @apply w-16 h-16 rounded-xl flex items-center justify-center;
+    @apply bg-accent/10 text-accent;
+  }
+
+  /* Contact Form Input */
+  .form-input-custom {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-background;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent;
+    @apply transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .hover-shadow-accent-glow:hover {
+    box-shadow: 0 8px 30px hsl(28 90% 52% / 0.4);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: 0 8px 30px hsl(28 90% 52% / 0.4);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(28 90% 52%), hsl(28 95% 42%));
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(135deg, hsl(215 55% 18% / 0.92), hsl(215 55% 18% / 0.75));
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
